@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hands-On vCISO Compliance | SOC 2, HITRUST, ISO 27001 | Nysa Tech</title>
-  <meta name="description" content="Nysa Technology builds, runs, and passes SOC 2, HITRUST, ISO 27001, GDPR, HIPAA, and NIST compliance programs end-to-end. You don't face the auditor alone." />
+  <title>Hands-On vCISO Compliance | SOC 2, HITRUST, ISO 27001, PCI-DSS | Nysa Tech</title>
+  <meta name="description" content="Nysa Technology builds, runs, and passes SOC 2, HITRUST, ISO 27001, GDPR, HIPAA, NIST, PCI-DSS, and ISO 27017 compliance programs end-to-end. You don't face the auditor alone." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -83,7 +83,7 @@
         Hands-On vCISO
       </h1>
       <p class="reveal delay-2" style="font-size:1.05rem;color:var(--text-dim);line-height:1.75;">
-        We build, run, and pass your compliance audits end-to-end. SOC 2, HITRUST, ISO 27001, and GDPR. Plus full HIPAA and NIST compliance programs. You don't face the auditor alone.
+        We build, run, and pass your compliance audits end-to-end. SOC 2, HITRUST, ISO 27001, GDPR, PCI-DSS, and ISO 27017. Plus full HIPAA and NIST compliance programs. You don't face the auditor alone.
       </p>
       <div class="reveal delay-3" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:32px;">
         <span class="tag">SOC 2</span>
@@ -92,6 +92,8 @@
         <span class="tag">ISO 27001</span>
         <span class="tag">GDPR</span>
         <span class="tag">NIST CSF</span>
+        <span class="tag">PCI-DSS</span>
+        <span class="tag">ISO 27017</span>
       </div>
     </div>
   </div>
@@ -307,6 +309,73 @@
   </div>
 </section>
 
+<!-- PCI-DSS -->
+<section class="section bg-elev">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+      <div class="reveal">
+        <div class="label">PCI-DSS</div>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;margin-bottom:16px;">Payment Card Industry <span class="gold">Data Security Standard</span></h2>
+        <p style="color:var(--text-dim);font-size:0.95rem;line-height:1.75;margin-bottom:20px;">Required for any business that processes, stores, or transmits cardholder data. We scope your environment, implement all 12 PCI-DSS v4.0 requirements, and manage your assessment through a Qualified Security Assessor (QSA).</p>
+        <ul class="checklist reveal delay-1">
+          <li>Scoping &amp; network segmentation</li>
+          <li>All 12 PCI-DSS requirements implemented</li>
+          <li>SAQ &amp; QSA coordination</li>
+          <li>Report on Compliance (ROC) delivery</li>
+          <li>Ongoing vulnerability scanning &amp; pen testing</li>
+        </ul>
+      </div>
+      <div class="reveal delay-1">
+        <div style="background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:36px;">
+          <h3 style="font-size:1.5rem;font-weight:800;color:var(--accent-2);margin-bottom:8px;">PCI-DSS v4.0</h3>
+          <p style="font-size:0.88rem;color:var(--muted);margin-bottom:24px;">Latest standard — fully implemented</p>
+          <ul class="checklist" style="gap:10px;">
+            <li>Network security controls</li>
+            <li>Cardholder data protection</li>
+            <li>Vulnerability management</li>
+            <li>Access control measures</li>
+            <li>Monitoring &amp; testing programs</li>
+            <li>Information security policy</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ISO 27017 -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+      <div class="reveal delay-1" style="order:2;">
+        <div style="background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:36px;">
+          <h3 style="font-size:1.5rem;font-weight:800;margin-bottom:8px;">ISO 27017</h3>
+          <p style="font-size:0.88rem;color:var(--muted);margin-bottom:24px;">Cloud-specific security controls</p>
+          <ul class="checklist" style="gap:10px;">
+            <li>Shared responsibility mapping</li>
+            <li>Virtual machine hardening</li>
+            <li>Cloud admin operations security</li>
+            <li>Customer data segregation</li>
+            <li>Cloud service monitoring</li>
+          </ul>
+        </div>
+      </div>
+      <div class="reveal" style="order:1;">
+        <div class="label">ISO 27017</div>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;margin-bottom:16px;">Cloud Security <span class="gold">Controls</span></h2>
+        <p style="color:var(--text-dim);font-size:0.95rem;line-height:1.75;margin-bottom:20px;">ISO 27017 provides cloud-specific security guidance built on ISO 27001. It defines controls for both cloud providers and customers — covering shared responsibilities, virtual environments, and cloud admin operations.</p>
+        <ul class="checklist reveal delay-1">
+          <li>Cloud asset inventory &amp; classification</li>
+          <li>Shared responsibility model implementation</li>
+          <li>Virtual environment security hardening</li>
+          <li>Cloud-specific incident response</li>
+          <li>Certification aligned with ISO 27001 ISMS</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="footer">
   <div class="container">
@@ -355,6 +424,8 @@
           <li><a href="compliance.html">ISO 27001</a></li>
           <li><a href="compliance.html">GDPR</a></li>
           <li><a href="compliance.html">NIST CSF</a></li>
+          <li><a href="compliance.html">PCI-DSS</a></li>
+          <li><a href="compliance.html">ISO 27017</a></li>
         </ul>
       </div>
       <div class="footer-col">
