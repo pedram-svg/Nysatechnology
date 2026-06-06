@@ -357,6 +357,9 @@ ul { list-style: none; }
 .footer-contact { font-size: 0.8rem; color: var(--muted); }
 .footer-contact a { color: var(--text-dim); transition: color 0.2s; }
 .footer-contact a:hover { color: var(--accent-2); }
+.footer-social { display: flex; gap: 14px; align-items: center; margin-bottom: 20px; }
+.social-icon { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--line); color: var(--muted); transition: all 0.2s; }
+.social-icon:hover { background: rgba(182,157,106,0.12); border-color: var(--accent); color: var(--accent); }
 
 /* =============================================
    REVEAL ANIMATIONS
@@ -868,17 +871,4 @@ ul { list-style: none; }
   .nav-links, .nav-cta { display: none; }
   .nav-hamburger { display: flex; }
 
-  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-  .case-grid { grid-template-columns: 1fr; }
-
-  .footer-top { grid-template-columns: 1fr; gap: 32px; }
-  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
-
-  .section-title { font-size: 1.75rem; }
-  .hero-inner { padding: 60px 0; }
-  .page-hero-inner { padding: 72px 0 56px; }
-}
-
-@media (max-width: 480px) {
-  .btn { padding: 12px 22px; font-size: 0.85rem; }
-}
+  .grid-2, .grid-
