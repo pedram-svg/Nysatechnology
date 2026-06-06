@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Nysa Technology | Hands-On vCISO &amp; Compliance</title>
+  <meta name="description" content="Nysa Technology was founded by Pedram Behmardi-Kalantari, CISSP-certified. We build, run, and pass SOC 2, HIPAA, HITRUST, ISO 27001, GDPR, and NIST audits end-to-end." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .cert-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .cert-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(182,157,106,0.25);
+      background: var(--accent-soft);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 2L35 10V22C35 29.5 27.5 35.5 19 38C10.5 35.5 3 29.5 3 22V10L19 2Z" fill="#0d1520" stroke="#22d3ee" stroke-width="1.2"/>
+        <circle cx="19" cy="19" r="4" fill="none" stroke="#22d3ee" stroke-width="1.2"/>
+        <circle cx="10" cy="13" r="2" fill="#22d3ee" opacity="0.7"/>
+        <circle cx="28" cy="13" r="2" fill="#22d3ee" opacity="0.7"/>
+        <circle cx="10" cy="25" r="2" fill="#22d3ee" opacity="0.7"/>
+        <circle cx="28" cy="25" r="2" fill="#22d3ee" opacity="0.7"/>
+        <circle cx="19" cy="9" r="2" fill="#22d3ee" opacity="0.9"/>
+        <line x1="19" y1="9" x2="19" y2="15" stroke="#22d3ee" stroke-width="0.8" opacity="0.5"/>
+        <line x1="10" y1="13" x2="15" y2="17" stroke="#22d3ee" stroke-width="0.8" opacity="0.5"/>
+        <line x1="28" y1="13" x2="23" y2="17" stroke="#22d3ee" stroke-width="0.8" opacity="0.5"/>
+        <line x1="10" y1="25" x2="15" y2="21" stroke="#22d3ee" stroke-width="0.8" opacity="0.5"/>
+        <line x1="28" y1="25" x2="23" y2="21" stroke="#22d3ee" stroke-width="0.8" opacity="0.5"/>
+        <line x1="10" y1="13" x2="10" y2="25" stroke="#22d3ee" stroke-width="0.8" opacity="0.3"/>
+        <line x1="28" y1="13" x2="28" y2="25" stroke="#22d3ee" stroke-width="0.8" opacity="0.3"/>
+      </svg>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Nysa</span>
+        <span class="nav-logo-sub">Technology</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="compliance.html" class="nav-link">Compliance</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-primary">Book a Consultation</a>
+    </div>
+    <div class="nav-hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="mobileNav">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="services.html" class="nav-link">Services</a>
+  <a href="compliance.html" class="nav-link">Compliance</a>
+  <a href="about.html" class="nav-link">About</a>
+  <a href="contact.html" class="nav-link">Contact</a>
+  <a href="contact.html" class="btn btn-primary">Book a Consultation</a>
+</div>
+
+<!-- ============================================================
+     PAGE HERO
+     ============================================================ -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="hero-bg-grid"></div>
+  <div class="hero-glow" style="width:500px;height:400px;background:rgba(34,211,238,0.04);top:-60px;right:-60px;filter:blur(100px);position:absolute;z-index:0;"></div>
+  <div class="container">
+    <div class="page-hero-inner" style="max-width:800px;">
+      <div class="label reveal">Our Mission &amp; Story</div>
+      <h1 class="reveal delay-1" style="font-size:clamp(2rem,4.5vw,3.4rem);font-weight:800;margin-bottom:28px;line-height:1.12;">
+        About Nysa Technology<br>
+        <span style="color:var(--text-dim);font-weight:600;font-size:0.72em;">Hands-On vCISO</span>
+      </h1>
+      <div style="display:flex;flex-direction:column;gap:18px;max-width:720px;">
+        <p class="reveal delay-2" style="color:var(--text-dim);font-size:0.97rem;line-height:1.78;">Nysa Technology was founded on one observation: most vCISO consultants stop at "audit-ready" — handing clients a roadmap and a stack of policies, then leaving them to face the auditor alone. We don't. We build the program, run the implementation, sit through the audit, and deliver the certification report.</p>
+        <p class="reveal delay-3" style="color:var(--text-dim);font-size:0.97rem;line-height:1.78;">We provide Hands-On vCISO services as your independent contractor — building, running, and passing audits for SOC 2, HITRUST, ISO 27001, and GDPR, plus full HIPAA and NIST compliance programs. For teams with internal capacity, we offer Advisory engagements that coach your in-house team.</p>
+        <p class="reveal delay-4" style="color:var(--text-dim);font-size:0.97rem;line-height:1.78;">Led by CISSP- and CISM-certified senior experts, we serve US clients on 3, 6, 9, or 12-month engagements — no full-time hire, no lock-in, no junior handoffs.</p>
+      </div>
+      <div class="cert-row reveal delay-4">
+        <span class="cert-badge">CISSP Certified</span>
+        <span class="cert-badge">ISO/IEC 27001 Certified</span>
+        <span class="cert-badge">CISA Certified</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     THE FOUNDER
+     ============================================================ -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start;">
+
+      <!-- Founder Card -->
+      <div class="reveal-left">
+        <div style="background:var(--bg-card);border:1px solid rgba(182,157,106,0.18);border-radius:var(--radius);padding:36px;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent-grad);"></div>
+
+          <!-- Avatar placeholder -->
+          <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,rgba(182,157,106,0.25),rgba(34,211,238,0.12));border:2px solid rgba(182,157,106,0.3);display:flex;align-items:center;justify-content:center;font-size:2rem;margin-bottom:20px;">
+            P
+          </div>
+
+          <h3 style="font-size:1.25rem;font-weight:700;margin-bottom:4px;">Pedram Behmardi-Kalantari</h3>
+          <p style="font-size:0.82rem;color:var(--accent);font-weight:600;letter-spacing:0.06em;margin-bottom:20px;">Founder &amp; vCISO</p>
+
+          <div style="display:flex;flex-direction:column;gap:12px;padding-top:20px;border-top:1px solid var(--line);">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:28px;height:28px;border-radius:var(--radius-sm);background:var(--accent-soft);display:flex;align-items:center;justify-content:center;font-size:0.8rem;color:var(--accent-2);font-weight:700;flex-shrink:0;">✓</div>
+              <span style="font-size:0.85rem;color:var(--text-dim);">CISSP — Certified Information Systems Security Professional</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:28px;height:28px;border-radius:var(--radius-sm);background:var(--accent-soft);display:flex;align-items:center;justify-content:center;font-size:0.8rem;color:var(--accent-2);font-weight:700;flex-shrink:0;">✓</div>
+              <span style="font-size:0.85rem;color:var(--text-dim);">CISA — Certified Information Systems Auditor</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:28px;height:28px;border-radius:var(--radius-sm);background:var(--accent-soft);display:flex;align-items:center;justify-content:center;font-size:0.8rem;color:var(--accent-2);font-weight:700;flex-shrink:0;">✓</div>
+              <span style="font-size:0.85rem;color:var(--text-dim);">ISO/IEC 27001 — Lead Implementer</span>
+            </div>
+          </div>
+
+          <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--line);">
+            <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Past Roles</div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="background:var(--bg-card-2);border-radius:var(--radius-sm);padding:10px 14px;">
+                <div style="font-size:0.82rem;font-weight:600;color:var(--text);">CISO · Movn Health</div>
+                <div style="font-size:0.77rem;color:var(--muted);">Built HITRUST, SOC 2, HIPAA, NIST, ISO 27001 programs</div>
+              </div>
+              <div style="background:var(--bg-card-2);border-radius:var(--radius-sm);padding:10px 14px;">
+                <div style="font-size:0.82rem;font-weight:600;color:var(--text);">Virtual CISO · Cayaba Care</div>
+                <div style="font-size:0.77rem;color:var(--muted);">Led security operations for healthcare technology company</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Story -->
+      <div class="reveal-right delay-1">
+        <div class="label">Built by a Hands-On CISO, for Hands-On Compliance</div>
+        <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">The Founder</div>
+        <h2 style="font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;margin-bottom:24px;">Pedram Behmardi-Kalantari</h2>
+
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <p style="color:var(--text-dim);font-size:0.95rem;line-height:1.78;">Nysa Technology was founded by Pedram Behmardi-Kalantari, a CISSP-certified cybersecurity professional with hands-on experience building compliance programs at healthcare and technology companies. As CISO at Movn Health, he built compliance programs from the ground up — covering HITRUST, SOC 2, HIPAA, NIST, and ISO 27001. As virtual CISO at Cayaba Care, he led security operations for a healthcare technology company.</p>
+          <p style="color:var(--text-dim);font-size:0.95rem;line-height:1.78;">He launched Nysa Technology to bring the same senior, hands-on leadership to growing companies that need elite security expertise — without the cost or commitment of a full-time CISO hire.</p>
+        </div>
+
+        <div style="margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div style="background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;">
+            <div style="font-size:1.8rem;font-weight:800;font-family:'Sora',sans-serif;background:var(--accent-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px;">5+</div>
+            <div style="font-size:0.82rem;color:var(--text-dim);">Years leading compliance programs</div>
+          </div>
+          <div style="background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;">
+            <div style="font-size:1.8rem;font-weight:800;font-family:'Sora',sans-serif;background:var(--accent-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px;">6</div>
+            <div style="font-size:0.82rem;color:var(--text-dim);">Frameworks mastered end-to-end</div>
+          </div>
+          <div style="background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;">
+            <div style="font-size:1.8rem;font-weight:800;font-family:'Sora',sans-serif;background:var(--accent-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px;">3</div>
+            <div style="font-size:0.82rem;color:var(--text-dim);">Elite security certifications held</div>
+          </div>
+          <div style="background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;">
+            <div style="font-size:1.8rem;font-weight:800;font-family:'Sora',sans-serif;background:var(--accent-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px;">$0</div>
+            <div style="font-size:0.82rem;color:var(--text-dim);">Junior handoffs — ever</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     LOCATION
+     ============================================================ -->
+<section class="section-sm bg-elev">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
+      <div class="reveal-left">
+        <div class="label">US-Based Operations</div>
+        <h2 style="font-size:1.6rem;font-weight:700;margin-bottom:16px;">Headquartered in California</h2>
+        <p style="color:var(--text-dim);font-size:0.95rem;line-height:1.75;">We focus exclusively on US-based clients, ensuring full alignment with domestic compliance frameworks and regulatory standards.</p>
+        <div style="margin-top:20px;display:flex;align-items:center;gap:10px;">
+          <span style="font-size:1.2rem;">📍</span>
+          <span style="color:var(--accent-2);font-weight:600;">California, USA</span>
+        </div>
+      </div>
+      <div class="reveal-right delay-1">
+        <div style="background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;">
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">We Serve Clients Across</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <span class="tag">California</span>
+            <span class="tag">New York</span>
+            <span class="tag">Texas</span>
+            <span class="tag">Florida</span>
+            <span class="tag">Remote-First</span>
+            <span class="tag">All US States</span>
+          </div>
+          <p style="color:var(--muted);font-size:0.82rem;margin-top:16px;line-height:1.6;">Fully remote delivery — no travel required. We embed seamlessly into your existing workflows regardless of location.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FINAL CTA
+     ============================================================ -->
+<section class="section" style="text-align:center;">
+  <div class="container">
+    <div style="max-width:600px;margin:0 auto;">
+      <h2 class="section-title reveal" style="font-size:clamp(2rem,4vw,2.8rem);">Ready to get audit-passed?</h2>
+      <p class="section-sub reveal delay-1" style="text-align:center;margin:0 auto 36px;">Book a free 30-minute consultation with Pedram directly — no junior account managers, no sales teams. Just a senior CISSP expert and your compliance situation.</p>
+      <div class="reveal delay-2">
+        <a href="contact.html" class="btn btn-primary" style="font-size:1rem;padding:16px 36px;">Book a Free Consultation →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 2L35 10V22C35 29.5 27.5 35.5 19 38C10.5 35.5 3 29.5 3 22V10L19 2Z" fill="#0d1520" stroke="#22d3ee" stroke-width="1.2"/>
+            <circle cx="19" cy="19" r="4" fill="none" stroke="#22d3ee" stroke-width="1.2"/>
+            <circle cx="10" cy="13" r="2" fill="#22d3ee" opacity="0.7"/>
+            <circle cx="28" cy="13" r="2" fill="#22d3ee" opacity="0.7"/>
+            <circle cx="10" cy="25" r="2" fill="#22d3ee" opacity="0.7"/>
+            <circle cx="28" cy="25" r="2" fill="#22d3ee" opacity="0.7"/>
+            <circle cx="19" cy="9" r="2" fill="#22d3ee" opacity="0.9"/>
+            <line x1="19" y1="9" x2="19" y2="15" stroke="#22d3ee" stroke-width="0.8" opacity="0.5"/>
+            <line x1="10" y1="13" x2="15" y2="17" stroke="#22d3ee" stroke-width="0.8" opacity="0.5"/>
+            <line x1="28" y1="13" x2="23" y2="17" stroke="#22d3ee" stroke-width="0.8" opacity="0.5"/>
+            <line x1="10" y1="25" x2="15" y2="21" stroke="#22d3ee" stroke-width="0.8" opacity="0.5"/>
+            <line x1="28" y1="25" x2="23" y2="21" stroke="#22d3ee" stroke-width="0.8" opacity="0.5"/>
+            <line x1="10" y1="13" x2="10" y2="25" stroke="#22d3ee" stroke-width="0.8" opacity="0.3"/>
+            <line x1="28" y1="13" x2="28" y2="25" stroke="#22d3ee" stroke-width="0.8" opacity="0.3"/>
+          </svg>
+          <div class="footer-logo-text nav-logo-text">
+            <span class="nav-logo-name">Nysa</span>
+            <span class="nav-logo-sub">Technology</span>
+          </div>
+        </div>
+        <p class="footer-tagline">Hands-On vCISO &amp; Compliance Services. We don't advise — we execute.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <ul>
+          <li><a href="services.html">vCISO Services</a></li>
+          <li><a href="services.html">Gap Assessment</a></li>
+          <li><a href="services.html">Policy Development</a></li>
+          <li><a href="services.html">Audit Management</a></li>
+          <li><a href="services.html">Ongoing Compliance</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Compliance</div>
+        <ul>
+          <li><a href="compliance.html">SOC 2</a></li>
+          <li><a href="compliance.html">HIPAA</a></li>
+          <li><a href="compliance.html">HITRUST</a></li>
+          <li><a href="compliance.html">ISO 27001</a></li>
+          <li><a href="compliance.html">GDPR</a></li>
+          <li><a href="compliance.html">NIST CSF</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Book a Consultation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Nysa Technology. All rights reserved.</p>
+      <p class="footer-contact">
+        <a href="mailto:info@nysatechnology.com">info@nysatechnology.com</a>
+        &nbsp;·&nbsp;
+        <a href="tel:9494149772">(949) 414-9772</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
