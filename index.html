@@ -9,13 +9,780 @@
   gtag('js', new Date());
   gtag('config', 'G-GBKCE5B61Q');
 </script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hands-On vCISO for SOC 2, HIPAA, HITRUST | Nysa Technology</title>
-  <meta name="description" content="Nysa Technology delivers Hands-On vCISO services — SOC 2, HITRUST, HIPAA, ISO 27001, NIST, GDPR, PCI-DSS, ISO 27017 compliance. Zero to audit pass, report in hand, at fractional cost." />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hands-On vCISO for SOC 2, HIPAA, HITRUST | Nysa Technology</title>
+<meta name="description" content="Nysa Technology delivers Hands-On vCISO services — SOC 2, HITRUST, HIPAA, ISO 27001, NIST, GDPR, PCI-DSS, ISO 27017 compliance. Zero to audit pass, report in hand, at fractional cost." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<style>
+/* ============================================================
+   ENHANCED ANIMATIONS & REDESIGN LAYER
+   ============================================================ */
+
+:root {
+  --glow-gold: rgba(182,157,106,0.35);
+  --glow-cyan: rgba(34,211,238,0.25);
+}
+
+/* ---- CURSOR GLOW ---- */
+#cursor-glow {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle, rgba(182,157,106,0.07) 0%, transparent 70%);
+  transform: translate(-50%,-50%);
+  transition: opacity 0.4s;
+  mix-blend-mode: screen;
+}
+
+/* ---- PAGE LOADER ---- */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #07080b;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+#loader.hidden { opacity: 0; visibility: hidden; }
+
+.loader-logo {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #e9d9b3, #b69d6a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+
+.loader-bar-wrap {
+  width: 200px;
+  height: 2px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.loader-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #b69d6a, #e9d9b3);
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.8s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ---- HERO REDESIGN ---- */
+.hero {
+  background: #07080b;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-mesh {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(182,157,106,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 20%, rgba(34,211,238,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 50% 100%, rgba(182,157,106,0.04) 0%, transparent 60%);
+  animation: meshShift 12s ease-in-out infinite alternate;
+}
+@keyframes meshShift {
+  0%   { opacity: 1; transform: scale(1) translateX(0); }
+  100% { opacity: 0.8; transform: scale(1.05) translateX(20px); }
+}
+
+/* Animated scan line */
+.hero-scanline {
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(182,157,106,0.3) 30%, rgba(34,211,238,0.4) 50%, rgba(182,157,106,0.3) 70%, transparent 100%);
+  top: 0;
+  z-index: 1;
+  animation: scanDown 6s linear infinite;
+}
+@keyframes scanDown {
+  0%   { top: 0%; opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* Hero split layout */
+.hero-split {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 72px;
+  align-items: center;
+  padding: 120px 0 100px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ---- ANIMATED HEADLINE ---- */
+.hero-headline-wrap { overflow: hidden; }
+.hero-line {
+  display: block;
+  transform: translateY(110%);
+  opacity: 0;
+  animation: lineUp 0.9s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+.hero-line:nth-child(1) { animation-delay: 0.4s; }
+.hero-line:nth-child(2) { animation-delay: 0.55s; }
+.hero-line:nth-child(3) { animation-delay: 0.7s; }
+.hero-line:nth-child(4) { animation-delay: 0.85s; }
+@keyframes lineUp {
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Label fade in */
+.hero-label-anim {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
+}
+.hero-sub-anim {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 1s forwards;
+}
+.hero-cta-anim {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 1.15s forwards;
+}
+.hero-badge-anim {
+  opacity: 0;
+  animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 1.3s forwards;
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Gradient text for headline */
+.gradient-text {
+  background: linear-gradient(135deg, #f5e8c8 0%, #e9d9b3 40%, #b69d6a 75%, #8a734a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
+}
+
+/* ---- HERO RIGHT: FLOATING CARD STACK ---- */
+.hero-right {
+  opacity: 0;
+  transform: translateX(40px);
+  animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.7s forwards;
+}
+
+.hero-card-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hcard {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), border-color 0.3s, box-shadow 0.3s;
+}
+.hcard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: radial-gradient(circle at 50% 0%, rgba(182,157,106,0.08) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.hcard:hover { transform: translateY(-4px) scale(1.01); border-color: rgba(182,157,106,0.25); box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(182,157,106,0.1); }
+.hcard:hover::after { opacity: 1; }
+
+.hcard-top {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.hcard-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* Active glow card */
+.hcard-active {
+  border-color: rgba(34,211,238,0.2);
+  background: linear-gradient(135deg, rgba(34,211,238,0.04) 0%, var(--bg-card) 60%);
+}
+.hcard-active::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  animation: shimmerLine 3s ease-in-out infinite;
+}
+@keyframes shimmerLine {
+  0%,100% { opacity: 0.4; }
+  50%      { opacity: 1; }
+}
+
+/* ---- MARQUEE STRIP ---- */
+.marquee-section {
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-elev);
+  overflow: hidden;
+  position: relative;
+}
+.marquee-section::before,
+.marquee-section::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 200px;
+  z-index: 2;
+}
+.marquee-section::before { left: 0; background: linear-gradient(90deg, var(--bg-elev), transparent); }
+.marquee-section::after  { right: 0; background: linear-gradient(-90deg, var(--bg-elev), transparent); }
+
+.marquee-track {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  animation: marqueeScroll 30s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+@keyframes marqueeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 32px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.marquee-item:hover { color: var(--accent-2); }
+.marquee-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+/* ---- STATS ROW ---- */
+.stats-section {
+  padding: 80px 0;
+  background: var(--bg);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--line);
+}
+
+.stat-item {
+  background: var(--bg-card);
+  padding: 40px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+.stat-item::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: var(--accent-grad);
+  transform: scaleX(0);
+  transition: transform 0.4s var(--ease);
+}
+.stat-item:hover { background: var(--bg-card-2); }
+.stat-item:hover::before { transform: scaleX(1); }
+
+.stat-number {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ---- INDUSTRY CARDS (Tailored Expertise) ---- */
+.industry-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.industry-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), border-color 0.3s, box-shadow 0.3s;
+  cursor: default;
+}
+.industry-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 0% 100%, rgba(182,157,106,0.06) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.industry-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(182,157,106,0.2);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+}
+.industry-card:hover::before { opacity: 1; }
+
+.industry-icon {
+  width: 60px; height: 60px;
+  border-radius: 16px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(182,157,106,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+}
+
+/* ---- HOW IT WORKS: TIMELINE ---- */
+.timeline-wrap {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+.timeline-wrap::before {
+  content: '';
+  position: absolute;
+  top: 35px;
+  left: calc(16.67% + 24px);
+  right: calc(16.67% + 24px);
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--cyan) 50%, var(--accent) 100%);
+  animation: lineGrow 1.2s cubic-bezier(0.16,1,0.3,1) forwards;
+  transform-origin: left;
+}
+@keyframes lineGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+.timeline-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 28px 0;
+  position: relative;
+}
+
+.timeline-num {
+  width: 70px; height: 70px;
+  border-radius: 50%;
+  border: 2px solid rgba(182,157,106,0.3);
+  background: var(--bg-card);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Sora', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  background-clip: text;
+  color: var(--accent-2);
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+  transition: all 0.4s var(--ease);
+}
+.timeline-num::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: var(--accent-grad);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s;
+}
+.timeline-step:hover .timeline-num {
+  color: #07080b;
+  border-color: transparent;
+  box-shadow: 0 0 30px var(--glow-gold);
+}
+.timeline-step:hover .timeline-num::before { opacity: 1; }
+
+.timeline-step h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.timeline-step p {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+
+/* ---- HANDS-ON vCISO (split) ---- */
+.vciso-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.delivery-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 28px;
+  border-left: 3px solid transparent;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s, border-color 0.35s;
+  position: relative;
+  overflow: hidden;
+}
+.delivery-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: 16px;
+}
+.delivery-card:hover { transform: translateX(8px); box-shadow: -8px 0 32px rgba(0,0,0,0.3); }
+
+.delivery-card.gold { border-left-color: var(--accent); }
+.delivery-card.gold::after { background: radial-gradient(circle at 0% 50%, rgba(182,157,106,0.05) 0%, transparent 60%); }
+.delivery-card.gold:hover { box-shadow: -8px 0 32px rgba(182,157,106,0.1); }
+.delivery-card.gold:hover::after { opacity: 1; }
+
+.delivery-card.cyan { border-left-color: var(--cyan); }
+.delivery-card.cyan::after { background: radial-gradient(circle at 0% 50%, rgba(34,211,238,0.04) 0%, transparent 60%); }
+.delivery-card.cyan:hover { box-shadow: -8px 0 32px rgba(34,211,238,0.08); }
+.delivery-card.cyan:hover::after { opacity: 1; }
+
+.delivery-card.silver { border-left-color: rgba(182,157,106,0.4); }
+
+/* ---- SERVICE MODEL CARDS ---- */
+.service-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 56px;
+}
+
+.service-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s, border-color 0.3s;
+}
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+}
+
+.service-card.featured {
+  border-color: rgba(182,157,106,0.25);
+  background: linear-gradient(135deg, rgba(182,157,106,0.04) 0%, var(--bg-card) 50%);
+}
+.service-card.featured::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--accent-grad);
+}
+.service-card.featured:hover { box-shadow: 0 40px 100px rgba(0,0,0,0.5), 0 0 60px rgba(182,157,106,0.08); }
+
+/* ---- FRAMEWORK CARDS ---- */
+.fw-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.fw-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), border-color 0.3s, box-shadow 0.3s;
+  cursor: default;
+}
+.fw-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--accent-grad);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease);
+}
+.fw-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(182,157,106,0.2);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(182,157,106,0.08);
+}
+.fw-card:hover::before { transform: scaleX(1); }
+
+.fw-card-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(182,157,106,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 18px;
+}
+
+.fw-card h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.fw-card p {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ---- WHY NYSA PILLARS ---- */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.pillar-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s;
+}
+.pillar-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 60%;
+  background: radial-gradient(ellipse at bottom, rgba(182,157,106,0.04) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.pillar-card:hover { transform: translateY(-8px); box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+.pillar-card:hover::after { opacity: 1; }
+
+.pillar-big-num {
+  font-family: 'Sora', sans-serif;
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1;
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.18;
+  position: absolute;
+  top: 20px; right: 24px;
+  pointer-events: none;
+}
+
+/* ---- CASE STUDIES (reuse existing fc-* styles) ---- */
+
+/* ---- CTA SECTION ---- */
+.cta-section {
+  padding: 120px 0;
+  background: var(--bg-elev);
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(182,157,106,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-section::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.cta-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- GLOWING BTN VARIANT ---- */
+.btn-glow {
+  background: var(--accent-grad);
+  color: #07080b;
+  font-size: 1rem;
+  padding: 18px 44px;
+  border-radius: 50px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s;
+}
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50px;
+  background: var(--accent-grad);
+  z-index: -1;
+  filter: blur(16px);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.btn-glow:hover { transform: translateY(-3px); box-shadow: 0 20px 50px rgba(182,157,106,0.4); }
+.btn-glow:hover::before { opacity: 1; }
+
+/* ---- TILT EFFECT ---- */
+.tilt { transform-style: preserve-3d; will-change: transform; }
+
+/* ---- FAQ ENHANCED ---- */
+.faq-wrap { max-width: 800px; margin: 0 auto; }
+
+/* ---- NOISE OVERLAY ---- */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.018;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ---- SCROLL PROGRESS BAR ---- */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #b69d6a, #22d3ee, #b69d6a);
+  background-size: 200% 100%;
+  z-index: 10001;
+  width: 0%;
+  transition: width 0.1s linear;
+  animation: gradientShift 3s linear infinite;
+}
+@keyframes gradientShift {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ---- SECTION DIVIDER ---- */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 1024px) {
+  .fw-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .hero-split { grid-template-columns: 1fr; gap: 48px; padding: 100px 0 80px; }
+  .hero-right { display: none; }
+  .timeline-wrap { grid-template-columns: 1fr; }
+  .timeline-wrap::before { display: none; }
+  .vciso-split { grid-template-columns: 1fr; gap: 48px; }
+  .service-grid { grid-template-columns: 1fr; }
+  .industry-grid { grid-template-columns: 1fr; }
+  .pillars-grid { grid-template-columns: 1fr; }
+  .fw-grid { grid-template-columns: 1fr 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .fw-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
 </head>
 <body>
+
+<!-- Scroll progress bar -->
+<div id="scroll-progress"></div>
+
+<!-- Cursor glow -->
+<div id="cursor-glow"></div>
+
+<!-- Page Loader -->
+<div id="loader">
+  <div class="loader-logo">Nysa Technology</div>
+  <div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
+</div>
 
 <!-- ============================================================
      NAV
@@ -61,40 +828,40 @@
      HERO
      ============================================================ -->
 <section class="hero" id="hero">
+  <div class="hero-mesh"></div>
+  <div class="hero-scanline"></div>
   <div class="hero-bg-grid"></div>
-  <div class="hero-glow" style="width:600px;height:500px;background:rgba(182,157,106,0.06);top:-100px;left:-100px;"></div>
-  <div class="hero-glow" style="width:400px;height:400px;background:rgba(34,211,238,0.04);bottom:0;right:0;"></div>
   <canvas id="particleCanvas" style="position:absolute;inset:0;z-index:1;pointer-events:none;"></canvas>
 
   <div class="container">
-    <div class="hero-inner" style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px;align-items:center;">
-      <!-- Left -->
-      <div>
-        <div class="label reveal">vCISO &amp; Compliance Services</div>
-        <h1 class="reveal delay-1" style="font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:800;line-height:1.12;margin-bottom:24px;">
-          Hands-On vCISO<br>
-          Zero to <em class="gold" style="font-style:italic;">Audit Pass,</em><br>
-          Report in Hand<br>
-          <span style="color:var(--text-dim);font-weight:600;font-size:0.7em;">At Fractional Cost</span>
+    <div class="hero-split">
+
+      <!-- LEFT -->
+      <div style="position:relative;z-index:2;">
+        <div class="hero-label-anim" style="margin-bottom:24px;">
+          <span class="label">vCISO &amp; Compliance Services</span>
+        </div>
+
+        <h1 style="font-size:clamp(2.4rem,4.8vw,3.8rem);font-weight:800;line-height:1.1;margin-bottom:28px;overflow:hidden;">
+          <span class="hero-headline-wrap"><span class="hero-line">Hands-On vCISO —</span></span>
+          <span class="hero-headline-wrap"><span class="hero-line">Zero to <em class="gradient-text">Audit Pass,</em></span></span>
+          <span class="hero-headline-wrap"><span class="hero-line">Report in Hand.</span></span>
+          <span class="hero-headline-wrap"><span class="hero-line" style="font-size:0.6em;font-weight:600;color:var(--text-dim);">At Fractional Cost.</span></span>
         </h1>
 
-        <div class="reveal delay-2" style="margin-bottom:24px;display:flex;flex-direction:column;gap:8px;">
+        <div class="hero-sub-anim" style="margin-bottom:32px;display:flex;flex-direction:column;gap:10px;">
           <p style="color:var(--accent-2);font-weight:600;font-size:1rem;">→ We do it for you.</p>
           <p style="color:var(--text-dim);font-size:0.95rem;">→ From your first gap assessment to your certification report</p>
           <p style="color:var(--text-dim);font-size:0.95rem;">→ We run the entire program.</p>
-          <p style="color:var(--accent);font-weight:500;font-size:0.95rem;">→ You approve. We execute.</p>
+          <p style="color:var(--cyan);font-weight:500;font-size:0.95rem;">→ You approve. We execute.</p>
         </div>
 
-        <p class="reveal delay-3" style="color:var(--text-dim);font-size:0.95rem;line-height:1.75;margin-bottom:32px;max-width:580px;">
-          A full-time CISO costs $200K+ a year. Our Hands-On vCISO delivers the same outcome at a fraction of that cost — SOC 2, HITRUST, HIPAA, NIST, ISO 27001, GDPR, PCI-DSS, or ISO 27017 compliance, audit-passed, report in hand — on 3, 6, 9, or 12-month engagements. No full-time hire. No long-term lock-in.
-        </p>
-
-        <div class="reveal delay-3" style="display:flex;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:28px;">
-          <a href="https://calendly.com/pedrambk" target="_blank" rel="noopener" class="btn btn-primary">Book a Free Consultation →</a>
+        <div class="hero-cta-anim" style="display:flex;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:28px;">
+          <a href="https://calendly.com/pedrambk" target="_blank" rel="noopener" class="btn-glow">Book a Free Consultation →</a>
           <a href="services.html" class="btn btn-ghost">See Our Services</a>
         </div>
 
-        <div class="reveal delay-4">
+        <div class="hero-badge-anim">
           <div class="live-badge">
             <span class="live-dot"></span>
             Currently accepting new engagements
@@ -102,35 +869,100 @@
         </div>
       </div>
 
-      <!-- Right: Engagement Cards -->
-      <div class="reveal-right delay-2" style="display:flex;flex-direction:column;gap:16px;">
-        <div style="background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;">
-          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Engagement Length</div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <span class="tag tag-gold">3 Months</span>
-            <span class="tag tag-gold">6 Months</span>
-            <span class="tag tag-gold">9 Months</span>
-            <span class="tag tag-gold">12 Months</span>
+      <!-- RIGHT: Card Stack -->
+      <div class="hero-right tilt" id="heroTilt">
+        <div class="hero-card-stack">
+
+          <div class="hcard">
+            <div class="hcard-top">Engagement Length</div>
+            <div class="hcard-tags">
+              <span class="tag tag-gold">3 Months</span>
+              <span class="tag tag-gold">6 Months</span>
+              <span class="tag tag-gold">9 Months</span>
+              <span class="tag tag-gold">12 Months</span>
+            </div>
           </div>
-        </div>
-        <div style="background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;">
-          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Frameworks</div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <span class="tag">SOC 2</span>
-            <span class="tag">HIPAA</span>
-            <span class="tag">HITRUST</span>
-            <span class="tag">ISO 27001</span>
-            <span class="tag">GDPR</span>
-            <span class="tag">NIST</span>
-            <span class="tag">PCI-DSS</span>
-            <span class="tag">ISO 27017</span>
+
+          <div class="hcard">
+            <div class="hcard-top">Frameworks Supported</div>
+            <div class="hcard-tags">
+              <span class="tag">SOC 2</span>
+              <span class="tag">HIPAA</span>
+              <span class="tag">HITRUST</span>
+              <span class="tag">ISO 27001</span>
+              <span class="tag">GDPR</span>
+              <span class="tag">NIST</span>
+              <span class="tag">PCI-DSS</span>
+              <span class="tag">ISO 27017</span>
+            </div>
           </div>
+
+          <div class="hcard hcard-active">
+            <div class="hcard-top" style="color:var(--cyan);">Delivery Promise</div>
+            <p style="font-size:0.88rem;color:var(--text-dim);line-height:1.6;">Policies written. Controls implemented. Evidence collected. Audit defended. <strong style="color:var(--text);">Certification report in your hands.</strong></p>
+          </div>
+
         </div>
-        <div style="background:var(--bg-card);border:1px solid rgba(34,211,238,0.15);border-radius:var(--radius);padding:24px;position:relative;overflow:hidden;">
-          <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),transparent);"></div>
-          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Delivery Promise</div>
-          <p style="font-size:0.88rem;color:var(--text-dim);line-height:1.6;">Policies written. Controls implemented. Evidence collected. Audit defended. <strong style="color:var(--text);">Certification report in your hands.</strong></p>
-        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MARQUEE
+     ============================================================ -->
+<div class="marquee-section">
+  <div class="marquee-track" id="marqueeTrack">
+    <!-- Set 1 -->
+    <span class="marquee-item"><span class="marquee-dot"></span>SOC 2 Type II</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>HIPAA Compliance</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>HITRUST R2</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>ISO 27001</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>GDPR</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>NIST CSF</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>PCI-DSS</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>ISO 27017</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>vCISO Services</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Gap Assessment</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Audit Defense</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Policy Development</span>
+    <!-- Set 2 (duplicate for seamless loop) -->
+    <span class="marquee-item"><span class="marquee-dot"></span>SOC 2 Type II</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>HIPAA Compliance</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>HITRUST R2</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>ISO 27001</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>GDPR</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>NIST CSF</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>PCI-DSS</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>ISO 27017</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>vCISO Services</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Gap Assessment</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Audit Defense</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Policy Development</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     STATS
+     ============================================================ -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-number" data-count="50" data-suffix="+">0</span>
+        <span class="stat-label">Audits Passed</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-count="8" data-suffix="">0</span>
+        <span class="stat-label">Frameworks Supported</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-count="200" data-suffix="K+">0</span>
+        <span class="stat-label">Saved vs Full-Time CISO</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-count="100" data-suffix="%">0</span>
+        <span class="stat-label">Audit Pass Rate</span>
       </div>
     </div>
   </div>
@@ -145,21 +977,21 @@
       <div class="label reveal">Tailored Expertise</div>
       <h2 class="section-title reveal delay-1">Specialized Compliance for Your Industry</h2>
     </div>
-    <div class="grid-2">
-      <div class="card reveal delay-1">
-        <div class="fw-icon">🏥</div>
-        <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:12px;">Healthcare</h3>
-        <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.7;margin-bottom:20px;">We build and run your HIPAA, HITRUST, and SOC 2 programs end-to-end — from technical safeguards and BAA processes to audit defense and certification. Your patient data stays protected; your auditors stay satisfied.</p>
+    <div class="industry-grid">
+      <div class="industry-card reveal delay-1">
+        <div class="industry-icon">🏥</div>
+        <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:14px;">Healthcare</h3>
+        <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.7;margin-bottom:24px;">We build and run your HIPAA, HITRUST, and SOC 2 programs end-to-end — from technical safeguards and BAA processes to audit defense and certification. Your patient data stays protected; your auditors stay satisfied.</p>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
           <span class="tag tag-gold">HIPAA</span>
           <span class="tag tag-gold">HITRUST</span>
           <span class="tag tag-gold">SOC 2</span>
         </div>
       </div>
-      <div class="card reveal delay-2">
-        <div class="fw-icon">💻</div>
-        <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:12px;">SMBs Under 200 Employees</h3>
-        <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.7;margin-bottom:20px;">We embed as your contractor vCISO to build, run, and pass your SOC 2, NIST, ISO 27001, and GDPR audit — so you can close enterprise deals without hiring a full security team or stalling on growth.</p>
+      <div class="industry-card reveal delay-2">
+        <div class="industry-icon">💻</div>
+        <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:14px;">SMBs Under 200 Employees</h3>
+        <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.7;margin-bottom:24px;">We embed as your contractor vCISO to build, run, and pass your SOC 2, NIST, ISO 27001, and GDPR audit — so you can close enterprise deals without hiring a full security team or stalling on growth.</p>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
           <span class="tag tag-gold">SOC 2</span>
           <span class="tag tag-gold">NIST</span>
@@ -176,36 +1008,36 @@
      ============================================================ -->
 <section class="section">
   <div class="container">
-    <div style="text-align:center;margin-bottom:64px;">
+    <div style="text-align:center;margin-bottom:72px;">
       <div class="label reveal">How It Works</div>
-      <h2 class="section-title reveal delay-1">From first call to audit-passed in 3 simple steps</h2>
+      <h2 class="section-title reveal delay-1">From first call to audit-passed in 3 steps</h2>
     </div>
-    <div class="grid-3">
-      <div class="card reveal delay-1">
-        <div class="step-num">1</div>
-        <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:10px;">Free Consultation <span style="color:var(--muted);font-weight:400;font-size:0.85rem;">(30 minutes)</span></h3>
-        <p style="color:var(--text-dim);font-size:0.88rem;line-height:1.7;">We review your current security posture, discuss your compliance goals, and tell you exactly what you need — no obligation, no sales pitch. You'll leave with a clear picture of where you stand.</p>
+    <div class="timeline-wrap reveal delay-1">
+      <div class="timeline-step">
+        <div class="timeline-num">1</div>
+        <h3>Free Consultation <span style="color:var(--muted);font-weight:400;font-size:0.8rem;">(30 min)</span></h3>
+        <p>We review your security posture, discuss your compliance goals, and tell you exactly what you need — no obligation. You'll leave with a clear picture of where you stand.</p>
       </div>
-      <div class="card reveal delay-2">
-        <div class="step-num">2</div>
-        <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:10px;">Gap Assessment</h3>
-        <p style="color:var(--text-dim);font-size:0.88rem;line-height:1.7;">We map your current state against your target framework — SOC 2, HIPAA, HITRUST, or NIST. You get a prioritized remediation roadmap with clear timelines, so nothing is a surprise.</p>
+      <div class="timeline-step">
+        <div class="timeline-num">2</div>
+        <h3>Gap Assessment</h3>
+        <p>We map your current state against your target framework. You get a prioritized remediation roadmap with clear timelines, so nothing is a surprise.</p>
       </div>
-      <div class="card reveal delay-3">
-        <div class="step-num">3</div>
-        <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:10px;">We Build, Run, and Pass Your Audit</h3>
-        <p style="color:var(--text-dim);font-size:0.88rem;line-height:1.7;">As your contracted vCISO, we lead or execute every step — policies, controls, evidence collection, vendor reviews, audit attendance and defense — until your certification report is delivered. You don't face the auditor alone.</p>
+      <div class="timeline-step">
+        <div class="timeline-num">3</div>
+        <h3>We Build, Run &amp; Pass Your Audit</h3>
+        <p>We lead or execute every step — policies, controls, evidence, vendor reviews, audit attendance and defense — until your certification report is delivered.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     HANDS-ON VCISO
+     HANDS-ON vCISO
      ============================================================ -->
 <section class="section bg-elev">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+    <div class="vciso-split">
       <div class="reveal-left">
         <div class="label">Hands-On vCISO</div>
         <h2 class="section-title">From wherever you are to audit pass — report in hand. We build, run, and deliver your compliance program end-to-end.</h2>
@@ -216,21 +1048,21 @@
           <li>Certification report delivered to you</li>
           <li>Continuous compliance monitoring</li>
         </ul>
-        <div style="margin-top:32px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+        <div style="margin-top:36px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
           <a href="https://calendly.com/pedrambk" target="_blank" rel="noopener" class="btn btn-primary">Book a Free Consultation</a>
           <span class="badge badge-gold">WE DO THE WORK</span>
         </div>
       </div>
-      <div class="reveal-right delay-2" style="display:flex;flex-direction:column;gap:20px;">
-        <div style="background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;border-left:3px solid var(--accent);">
+      <div class="reveal-right delay-2" style="display:flex;flex-direction:column;gap:16px;">
+        <div class="delivery-card gold">
           <h4 style="font-size:0.95rem;font-weight:700;margin-bottom:8px;color:var(--accent-2);">Full Implementation</h4>
           <p style="font-size:0.85rem;color:var(--text-dim);line-height:1.6;">We write, implement, and maintain all required security policies and controls on your behalf.</p>
         </div>
-        <div style="background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;border-left:3px solid var(--cyan);">
+        <div class="delivery-card cyan">
           <h4 style="font-size:0.95rem;font-weight:700;margin-bottom:8px;color:var(--cyan);">Audit Attendance &amp; Defense</h4>
           <p style="font-size:0.85rem;color:var(--text-dim);line-height:1.6;">We sit with the auditor, walk them through every control, and answer questions in real time.</p>
         </div>
-        <div style="background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;border-left:3px solid rgba(182,157,106,0.4);">
+        <div class="delivery-card silver">
           <h4 style="font-size:0.95rem;font-weight:700;margin-bottom:8px;">Report in Hand</h4>
           <p style="font-size:0.85rem;color:var(--text-dim);line-height:1.6;">We don't leave until your certification report is delivered. End-to-end ownership from us to you.</p>
         </div>
@@ -248,17 +1080,15 @@
       <div class="label reveal">Service Models</div>
     </div>
     <h2 class="section-title reveal delay-1" style="text-align:center;">Two Ways to Engage with Nysa</h2>
-    <p class="section-sub reveal delay-2" style="text-align:center;margin:0 auto 56px;">Most clients choose our Hands-On vCISO — we build, run, and pass the audit for you. For teams with internal capacity, our Advisory model provides strategic guidance to your in-house people.</p>
+    <p class="section-sub reveal delay-2" style="text-align:center;margin:0 auto 0;max-width:620px;">Most clients choose our Hands-On vCISO — we build, run, and pass the audit for you. For teams with internal capacity, our Advisory model provides strategic guidance.</p>
 
-    <div class="grid-2">
-      <!-- Hands-On -->
-      <div class="card reveal delay-1" style="border-color:rgba(182,157,106,0.2);background:var(--bg-card-2);">
-        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent-grad);"></div>
-        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:12px;">
-          <h3 style="font-size:1.35rem;font-weight:700;">Hands-On vCISO</h3>
+    <div class="service-grid">
+      <div class="service-card featured reveal delay-1">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
+          <h3 style="font-size:1.4rem;font-weight:700;">Hands-On vCISO</h3>
           <span class="badge badge-gold">MOST POPULAR</span>
         </div>
-        <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin-bottom:24px;">The full engagement. We build, run, and pass your audit end-to-end — policies, controls, evidence, vendor reviews, audit attendance, and certification delivery.</p>
+        <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin-bottom:28px;">The full engagement. We build, run, and pass your audit end-to-end — policies, controls, evidence, vendor reviews, audit attendance, and certification delivery.</p>
         <ul class="checklist">
           <li>Full policy &amp; control implementation</li>
           <li>Evidence collection &amp; management</li>
@@ -267,18 +1097,17 @@
           <li>Certification report delivered to you</li>
           <li>Continuous compliance monitoring</li>
         </ul>
-        <div style="margin-top:28px;">
+        <div style="margin-top:32px;">
           <a href="https://calendly.com/pedrambk" target="_blank" rel="noopener" class="btn btn-primary">Book a Free Consultation</a>
         </div>
       </div>
 
-      <!-- Advisory -->
-      <div class="card reveal delay-2">
-        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:12px;">
-          <h3 style="font-size:1.35rem;font-weight:700;">Advisory vCISO</h3>
-          <span class="badge" style="background:rgba(138,143,157,0.1);color:var(--muted);border:1px solid var(--line-strong);font-size:0.68rem;letter-spacing:0.1em;">FOR TEAMS WITH INTERNAL CAPACITY</span>
+      <div class="service-card reveal delay-2">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
+          <h3 style="font-size:1.4rem;font-weight:700;">Advisory vCISO</h3>
+          <span class="badge" style="background:rgba(138,143,157,0.1);color:var(--muted);border:1px solid var(--line-strong);font-size:0.65rem;letter-spacing:0.1em;">FOR TEAMS WITH INTERNAL CAPACITY</span>
         </div>
-        <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin-bottom:24px;">Strategic guidance for teams who'll do the implementation themselves. We coach. You execute. Senior expertise on call when you need it.</p>
+        <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin-bottom:28px;">Strategic guidance for teams who'll do the implementation themselves. We coach. You execute. Senior expertise on call when you need it.</p>
         <ul class="checklist">
           <li>Compliance roadmap &amp; framework selection</li>
           <li>Gap analysis &amp; remediation planning</li>
@@ -287,7 +1116,7 @@
           <li>Direct access to your vCISO for questions</li>
           <li>MSA / NDA available upon request</li>
         </ul>
-        <div style="margin-top:28px;">
+        <div style="margin-top:32px;">
           <a href="https://calendly.com/pedrambk" target="_blank" rel="noopener" class="btn btn-primary">Book a Free Consultation</a>
         </div>
       </div>
@@ -301,57 +1130,52 @@
 <section class="section bg-elev">
   <div class="container">
     <div style="text-align:center;margin-bottom:16px;">
-      <div class="label reveal">Compliance Frameworks We Support</div>
+      <div class="label reveal">Compliance Frameworks</div>
     </div>
     <h2 class="section-title reveal delay-1" style="text-align:center;max-width:700px;margin:0 auto 16px;">We build, run, and pass your audits across the modern security standards</h2>
     <p class="section-sub reveal delay-2" style="text-align:center;margin:0 auto 56px;">Your customers and regulators require it — from initial readiness through certification and continuous monitoring.</p>
 
-    <div class="grid-3">
-      <div class="card reveal delay-1">
-        <div class="fw-icon">🔐</div>
-        <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:10px;">SOC 2</h3>
-        <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.65;">The foundation of security for SaaS companies. We manage your SOC 2 Readiness and Type II reporting lifecycle.</p>
+    <div class="fw-grid">
+      <div class="fw-card reveal delay-1">
+        <div class="fw-card-icon">🔐</div>
+        <h3>SOC 2</h3>
+        <p>The foundation of security for SaaS companies. We manage your SOC 2 Readiness and Type II reporting lifecycle.</p>
       </div>
-      <div class="card reveal delay-2">
-        <div class="fw-icon">🏛️</div>
-        <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:10px;">NIST CSF</h3>
-        <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.65;">Baseline security for any business. We build your security roadmap on the world-class NIST Cybersecurity Framework.</p>
+      <div class="fw-card reveal delay-2">
+        <div class="fw-card-icon">🏛️</div>
+        <h3>NIST CSF</h3>
+        <p>Baseline security for any business. We build your security roadmap on the world-class NIST Cybersecurity Framework.</p>
       </div>
-      <div class="card reveal delay-3">
-        <div class="fw-icon">🏥</div>
-        <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:10px;">HIPAA</h3>
-        <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.65;">Essential for healthcare startups. We build technical and administrative safeguards to protect patient identifiers.</p>
+      <div class="fw-card reveal delay-3">
+        <div class="fw-card-icon">🏥</div>
+        <h3>HIPAA</h3>
+        <p>Essential for healthcare startups. We build technical and administrative safeguards to protect patient identifiers.</p>
       </div>
-      <div class="card reveal delay-1">
-        <div class="fw-icon">🌐</div>
-        <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:10px;">ISO 27001</h3>
-        <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.65;">International recognition. We build and run your Information Security Management System (ISMS) and shepherd your ISO 27001 certification end-to-end.</p>
+      <div class="fw-card reveal delay-1">
+        <div class="fw-card-icon">🌐</div>
+        <h3>ISO 27001</h3>
+        <p>International recognition. We build and run your ISMS and shepherd your ISO 27001 certification end-to-end.</p>
       </div>
-      <div class="card reveal delay-2">
-        <div class="fw-icon">⭐</div>
-        <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:10px;">HITRUST</h3>
-        <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.65;">The comprehensive gold standard for healthcare. We streamline the R2 assessment process for maximum certifiability.</p>
+      <div class="fw-card reveal delay-2">
+        <div class="fw-card-icon">⭐</div>
+        <h3>HITRUST</h3>
+        <p>The gold standard for healthcare. We streamline the R2 assessment process for maximum certifiability.</p>
       </div>
-      <div class="card reveal delay-3">
-        <div class="fw-icon">🇪🇺</div>
-        <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:10px;">GDPR</h3>
-        <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.65;">Accountable privacy. We ensure your data processing operations meet strict European transparency regulations.</p>
+      <div class="fw-card reveal delay-3">
+        <div class="fw-card-icon">🇪🇺</div>
+        <h3>GDPR</h3>
+        <p>Accountable privacy. We ensure your data processing operations meet strict European transparency regulations.</p>
       </div>
-
-      <!-- PCI-DSS -->
-      <div class="card reveal delay-1">
-        <div class="fw-icon">💳</div>
-        <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:10px;">PCI-DSS</h3>
-        <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.65;">Payment card security. We scope your environment, implement all 12 PCI-DSS requirements, and coordinate your QSA assessment — so you can process payments with confidence.</p>
+      <div class="fw-card reveal delay-1">
+        <div class="fw-card-icon">💳</div>
+        <h3>PCI-DSS</h3>
+        <p>Payment card security. We scope your environment, implement all 12 PCI-DSS requirements, and coordinate your QSA assessment.</p>
       </div>
-
-      <!-- ISO 27017 -->
-      <div class="card reveal delay-2">
-        <div class="fw-icon">☁️</div>
-        <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:10px;">ISO 27017</h3>
-        <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.65;">Cloud security controls. We implement ISO 27017 guidance on top of your ISO 27001 foundation — covering cloud-specific risks, shared responsibilities, and virtual environment security.</p>
+      <div class="fw-card reveal delay-2">
+        <div class="fw-card-icon">☁️</div>
+        <h3>ISO 27017</h3>
+        <p>Cloud security controls. We implement ISO 27017 guidance on top of your ISO 27001 foundation — covering cloud-specific risks and shared responsibilities.</p>
       </div>
-
     </div>
   </div>
 </section>
@@ -367,20 +1191,23 @@
     <h2 class="section-title reveal delay-1" style="text-align:center;">We Don't Just Prep You. We Pass the Audit With You.</h2>
     <p class="section-sub reveal delay-2" style="text-align:center;margin:0 auto 56px;">Most consultants hand you a roadmap and a stack of policies — then leave you to face the auditor alone. We build the program, run the implementation, sit through the audit, and deliver your certification report.</p>
 
-    <div class="grid-3">
-      <div class="card reveal delay-1">
-        <div class="pillar-num">01</div>
-        <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:10px;">CISSP &amp; CISM Certified</h3>
+    <div class="pillars-grid">
+      <div class="pillar-card reveal delay-1">
+        <div class="pillar-big-num">01</div>
+        <div style="font-size:2.5rem;margin-bottom:16px;">🎓</div>
+        <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:12px;">CISSP &amp; CISM Certified</h3>
         <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.7;">Our experts hold the world's most recognized security certifications, ensuring your compliance programs are built on elite industry knowledge.</p>
       </div>
-      <div class="card reveal delay-2">
-        <div class="pillar-num">02</div>
-        <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:10px;">Senior Hands-On / No Junior Handoffs</h3>
+      <div class="pillar-card reveal delay-2">
+        <div class="pillar-big-num">02</div>
+        <div style="font-size:2.5rem;margin-bottom:16px;">🤝</div>
+        <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:12px;">Senior Hands-On / No Junior Handoffs</h3>
         <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.7;">The CISSP-certified expert who pitches you is the one doing the work. No offshore teams, no rotating juniors, no learning on your dime.</p>
       </div>
-      <div class="card reveal delay-3">
-        <div class="pillar-num">03</div>
-        <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:10px;">Transparent &amp; Accountable</h3>
+      <div class="pillar-card reveal delay-3">
+        <div class="pillar-big-num">03</div>
+        <div style="font-size:2.5rem;margin-bottom:16px;">📊</div>
+        <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:12px;">Transparent &amp; Accountable</h3>
         <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.7;">Weekly progress, clear milestones, no surprises. You see exactly what's getting done — and what's still open — at every point of the engagement.</p>
       </div>
     </div>
@@ -397,7 +1224,6 @@
     <p class="section-sub reveal delay-2" style="text-align:center;margin:16px auto 0;max-width:520px;">Hover any card to read the full story behind the result.</p>
   </div>
 
-  <!-- Flip Card Styles -->
   <style>
     .fc-grid {
       display: grid;
@@ -435,15 +1261,8 @@
       -webkit-backface-visibility: hidden;
       overflow: hidden;
     }
-    .fc-front {
-      background-size: cover;
-      background-position: center;
-    }
-    .fc-pat {
-      position: absolute;
-      inset: 0;
-      opacity: 0.35;
-    }
+    .fc-front { background-size: cover; background-position: center; }
+    .fc-pat { position: absolute; inset: 0; opacity: 0.35; }
     .pat-nodes {
       background-image:
         radial-gradient(circle at 20% 30%, rgba(182,157,106,0.6) 1px, transparent 1px),
@@ -478,260 +1297,118 @@
         linear-gradient(-60deg, rgba(182,157,106,0.04) 1px, transparent 1px);
       background-size: 100% 100%, 100% 100%, 100% 100%, 40px 70px, 40px 70px;
     }
-    .fc-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(7,8,11,0.75) 65%, rgba(7,8,11,0.97) 100%);
-    }
-    .fc-corner {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      width: 32px;
-      height: 32px;
-      border-top: 2px solid #b69d6a;
-      border-right: 2px solid #b69d6a;
-      opacity: 0.6;
-      border-radius: 0 4px 0 0;
-    }
-    .fc-ftxt {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 28px 24px 26px;
-    }
-    .fc-flabel {
-      font-size: 9.5px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #b69d6a;
-      margin-bottom: 8px;
-      display: block;
-    }
-    .fc-ftitle {
-      font-size: 17px;
-      font-weight: 700;
-      line-height: 1.35;
-      color: #f0f1f5;
-      letter-spacing: -0.01em;
-    }
-    .fc-back {
-      background: #10131c;
-      transform: rotateY(180deg);
-      border: 1px solid rgba(255,255,255,0.05);
-      display: flex;
-      flex-direction: column;
-    }
-    .fc-shimmer {
-      height: 2px;
-      background: linear-gradient(90deg, transparent 0%, #b69d6a 20%, #d4bc8a 50%, #b69d6a 80%, transparent 100%);
-      background-size: 200% 100%;
-      animation: fcShim 3s linear infinite;
-      flex-shrink: 0;
-    }
+    .fc-overlay { position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(7,8,11,0.75) 65%,rgba(7,8,11,0.97) 100%); }
+    .fc-corner { position:absolute;top:20px;right:20px;width:32px;height:32px;border-top:2px solid #b69d6a;border-right:2px solid #b69d6a;opacity:0.6;border-radius:0 4px 0 0; }
+    .fc-ftxt { position:absolute;bottom:0;left:0;right:0;padding:28px 24px 26px; }
+    .fc-flabel { font-size:9.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#b69d6a;margin-bottom:8px;display:block; }
+    .fc-ftitle { font-size:17px;font-weight:700;line-height:1.35;color:#f0f1f5;letter-spacing:-0.01em; }
+    .fc-back { background:#10131c;transform:rotateY(180deg);border:1px solid rgba(255,255,255,0.05);display:flex;flex-direction:column; }
+    .fc-shimmer { height:2px;background:linear-gradient(90deg,transparent 0%,#b69d6a 20%,#d4bc8a 50%,#b69d6a 80%,transparent 100%);background-size:200% 100%;animation:fcShim 3s linear infinite;flex-shrink:0; }
     @keyframes fcShim { 0%{background-position:-200% center} 100%{background-position:200% center} }
-    .fc-btxt {
-      padding: 22px 24px 24px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      overflow: hidden;
-    }
-    .fc-blabel {
-      font-size: 9px; font-weight: 700; letter-spacing: 0.16em;
-      text-transform: uppercase; color: #b69d6a; margin-bottom: 10px; display: block;
-    }
-    .fc-btitle {
-      font-size: 15px; font-weight: 700; color: #f0f1f5;
-      line-height: 1.35; letter-spacing: -0.01em; margin-bottom: 14px;
-    }
-    .fc-bdiv { height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 14px; flex-shrink: 0; }
-    .fc-story {
-      font-size: 13px; line-height: 1.65; color: #8a8f9d; flex: 1; overflow: hidden;
-    }
-    .fc-meta {
-      margin-top: 16px; flex-shrink: 0;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding-top: 14px; display: flex; flex-direction: column; gap: 6px;
-    }
-    .fc-mrow { display: flex; align-items: baseline; gap: 8px; }
-    .fc-mlbl { font-weight: 700; color: #b69d6a; white-space: nowrap; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; }
-    .fc-mval { color: #f0f1f5; font-weight: 500; font-size: 11.5px; line-height: 1.4; }
-    @media (max-width: 1080px) { .fc-grid { grid-template-columns: repeat(2, 320px); } }
-    @media (max-width: 720px)  { .fc-grid { grid-template-columns: 320px; } }
-    @media (max-width: 360px)  { .fc-grid { grid-template-columns: 1fr; } .fc { width: 100%; } }
+    .fc-btxt { padding:22px 24px 24px;display:flex;flex-direction:column;flex:1;overflow:hidden; }
+    .fc-blabel { font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#b69d6a;margin-bottom:10px;display:block; }
+    .fc-btitle { font-size:15px;font-weight:700;color:#f0f1f5;line-height:1.35;letter-spacing:-0.01em;margin-bottom:14px; }
+    .fc-bdiv { height:1px;background:rgba(255,255,255,0.08);margin-bottom:14px;flex-shrink:0; }
+    .fc-story { font-size:13px;line-height:1.65;color:#8a8f9d;flex:1;overflow:hidden; }
+    .fc-meta { margin-top:16px;flex-shrink:0;border-top:1px solid rgba(255,255,255,0.06);padding-top:14px;display:flex;flex-direction:column;gap:6px; }
+    .fc-mrow { display:flex;align-items:baseline;gap:8px; }
+    .fc-mlbl { font-weight:700;color:#b69d6a;white-space:nowrap;font-size:10px;letter-spacing:0.06em;text-transform:uppercase; }
+    .fc-mval { color:#f0f1f5;font-weight:500;font-size:11.5px;line-height:1.4; }
+    @media(max-width:1080px){.fc-grid{grid-template-columns:repeat(2,320px);}}
+    @media(max-width:720px){.fc-grid{grid-template-columns:320px;}}
+    @media(max-width:360px){.fc-grid{grid-template-columns:1fr;}.fc{width:100%;}}
   </style>
 
   <div class="fc-grid">
-
-    <!-- Card 1: HIPAA -->
     <div class="fc reveal delay-1" role="button" aria-label="HIPAA case study" tabindex="0">
       <div class="fc-inner">
         <div class="fc-front" style="background:linear-gradient(135deg,#1a0a2e 0%,#0d1520 100%);">
-          <div class="fc-pat pat-nodes"></div>
-          <div class="fc-overlay"></div>
-          <div class="fc-corner"></div>
-          <div class="fc-ftxt">
-            <span class="fc-flabel">HEALTHTECH | 45 EMPLOYEES, CA</span>
-            <div class="fc-ftitle">HIPAA &amp; Third-Party Audit Passed in 90 Days</div>
-          </div>
+          <div class="fc-pat pat-nodes"></div><div class="fc-overlay"></div><div class="fc-corner"></div>
+          <div class="fc-ftxt"><span class="fc-flabel">HEALTHTECH | 45 EMPLOYEES, CA</span><div class="fc-ftitle">HIPAA &amp; Third-Party Audit Passed in 90 Days</div></div>
         </div>
-        <div class="fc-back">
-          <div class="fc-shimmer"></div>
-          <div class="fc-btxt">
-            <span class="fc-blabel">HEALTHTECH | 45 EMPLOYEES, CA</span>
-            <div class="fc-btitle">HIPAA &amp; Third-Party Audit Passed in 90 Days</div>
-            <div class="fc-bdiv"></div>
+        <div class="fc-back"><div class="fc-shimmer"></div>
+          <div class="fc-btxt"><span class="fc-blabel">HEALTHTECH | 45 EMPLOYEES, CA</span><div class="fc-btitle">HIPAA &amp; Third-Party Audit Passed in 90 Days</div><div class="fc-bdiv"></div>
             <p class="fc-story">Achieved full HIPAA compliance and passed a third-party security assessment in under 90 days. Built policies, risk assessment, BAA process, and security training program from scratch.</p>
-            <div class="fc-meta">
-              <div class="fc-mrow"><span class="fc-mlbl">Framework</span><span class="fc-mval">HIPAA</span></div>
-              <div class="fc-mrow"><span class="fc-mlbl">Result</span><span class="fc-mval">Third-party assessment passed in 90 days</span></div>
-            </div>
+            <div class="fc-meta"><div class="fc-mrow"><span class="fc-mlbl">Framework</span><span class="fc-mval">HIPAA</span></div><div class="fc-mrow"><span class="fc-mlbl">Result</span><span class="fc-mval">Third-party assessment passed in 90 days</span></div></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Card 2: SOC 2 -->
     <div class="fc reveal delay-2" role="button" aria-label="SOC 2 case study" tabindex="0">
       <div class="fc-inner">
         <div class="fc-front" style="background:linear-gradient(135deg,#0a1520 0%,#111827 100%);">
-          <div class="fc-pat pat-grid"></div>
-          <div class="fc-overlay"></div>
-          <div class="fc-corner"></div>
-          <div class="fc-ftxt">
-            <span class="fc-flabel">SAAS &amp; TECH | 30 EMPLOYEES, REMOTE</span>
-            <div class="fc-ftitle">Fast-Track SOC 2 Type II Certification</div>
-          </div>
+          <div class="fc-pat pat-grid"></div><div class="fc-overlay"></div><div class="fc-corner"></div>
+          <div class="fc-ftxt"><span class="fc-flabel">SAAS &amp; TECH | 30 EMPLOYEES, REMOTE</span><div class="fc-ftitle">Fast-Track SOC 2 Type II Certification</div></div>
         </div>
-        <div class="fc-back">
-          <div class="fc-shimmer"></div>
-          <div class="fc-btxt">
-            <span class="fc-blabel">SAAS &amp; TECH | 30 EMPLOYEES, REMOTE</span>
-            <div class="fc-btitle">Fast-Track SOC 2 Type II Certification</div>
-            <div class="fc-bdiv"></div>
+        <div class="fc-back"><div class="fc-shimmer"></div>
+          <div class="fc-btxt"><span class="fc-blabel">SAAS &amp; TECH | 30 EMPLOYEES, REMOTE</span><div class="fc-btitle">Fast-Track SOC 2 Type II Certification</div><div class="fc-bdiv"></div>
             <p class="fc-story">Guided the company from zero security documentation to SOC 2 Type II report in 14 weeks. Implemented all 5 Trust Service Criteria controls and coordinated with the auditor directly.</p>
-            <div class="fc-meta">
-              <div class="fc-mrow"><span class="fc-mlbl">Engagement</span><span class="fc-mval">6-month Hands-On vCISO</span></div>
-              <div class="fc-mrow"><span class="fc-mlbl">Result</span><span class="fc-mval">SOC 2 Type II achieved, enterprise deals unblocked</span></div>
-            </div>
+            <div class="fc-meta"><div class="fc-mrow"><span class="fc-mlbl">Engagement</span><span class="fc-mval">6-month Hands-On vCISO</span></div><div class="fc-mrow"><span class="fc-mlbl">Result</span><span class="fc-mval">SOC 2 Type II achieved, enterprise deals unblocked</span></div></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Card 3: GDPR -->
     <div class="fc reveal delay-3" role="button" aria-label="GDPR case study" tabindex="0">
       <div class="fc-inner">
         <div class="fc-front" style="background:linear-gradient(135deg,#0a1a10 0%,#0d1520 100%);">
-          <div class="fc-pat pat-circuit"></div>
-          <div class="fc-overlay"></div>
-          <div class="fc-corner"></div>
-          <div class="fc-ftxt">
-            <span class="fc-flabel">E-COMMERCE | 60 EMPLOYEES, USA</span>
-            <div class="fc-ftitle">GDPR Compliance &amp; EU Market Expansion</div>
-          </div>
+          <div class="fc-pat pat-circuit"></div><div class="fc-overlay"></div><div class="fc-corner"></div>
+          <div class="fc-ftxt"><span class="fc-flabel">E-COMMERCE | 60 EMPLOYEES, USA</span><div class="fc-ftitle">GDPR Compliance &amp; EU Market Expansion</div></div>
         </div>
-        <div class="fc-back">
-          <div class="fc-shimmer"></div>
-          <div class="fc-btxt">
-            <span class="fc-blabel">E-COMMERCE | 60 EMPLOYEES, USA</span>
-            <div class="fc-btitle">GDPR Compliance &amp; EU Market Expansion</div>
-            <div class="fc-bdiv"></div>
+        <div class="fc-back"><div class="fc-shimmer"></div>
+          <div class="fc-btxt"><span class="fc-blabel">E-COMMERCE | 60 EMPLOYEES, USA</span><div class="fc-btitle">GDPR Compliance &amp; EU Market Expansion</div><div class="fc-bdiv"></div>
             <p class="fc-story">Mapped all EU customer data flows, implemented cookie consent management, updated privacy policies, and established a data subject request process. Company avoided potential GDPR fines and unlocked European enterprise partnerships.</p>
-            <div class="fc-meta">
-              <div class="fc-mrow"><span class="fc-mlbl">Engagement</span><span class="fc-mval">6-month Hands-On vCISO</span></div>
-              <div class="fc-mrow"><span class="fc-mlbl">Result</span><span class="fc-mval">Full GDPR compliance, EU market opened</span></div>
-            </div>
+            <div class="fc-meta"><div class="fc-mrow"><span class="fc-mlbl">Engagement</span><span class="fc-mval">6-month Hands-On vCISO</span></div><div class="fc-mrow"><span class="fc-mlbl">Result</span><span class="fc-mval">Full GDPR compliance, EU market opened</span></div></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Card 4: ISO 27001 -->
     <div class="fc reveal delay-1" role="button" aria-label="ISO 27001 case study" tabindex="0">
       <div class="fc-inner">
         <div class="fc-front" style="background:linear-gradient(135deg,#1a1505 0%,#0f0d1a 100%);">
-          <div class="fc-pat pat-hex"></div>
-          <div class="fc-overlay"></div>
-          <div class="fc-corner"></div>
-          <div class="fc-ftxt">
-            <span class="fc-flabel">FINTECH | 80 EMPLOYEES, CA</span>
-            <div class="fc-ftitle">End-to-End ISO 27001 Certification Achieved</div>
-          </div>
+          <div class="fc-pat pat-hex"></div><div class="fc-overlay"></div><div class="fc-corner"></div>
+          <div class="fc-ftxt"><span class="fc-flabel">FINTECH | 80 EMPLOYEES, CA</span><div class="fc-ftitle">End-to-End ISO 27001 Certification Achieved</div></div>
         </div>
-        <div class="fc-back">
-          <div class="fc-shimmer"></div>
-          <div class="fc-btxt">
-            <span class="fc-blabel">FINTECH | 80 EMPLOYEES, CA</span>
-            <div class="fc-btitle">End-to-End ISO 27001 Certification Achieved</div>
-            <div class="fc-bdiv"></div>
+        <div class="fc-back"><div class="fc-shimmer"></div>
+          <div class="fc-btxt"><span class="fc-blabel">FINTECH | 80 EMPLOYEES, CA</span><div class="fc-btitle">End-to-End ISO 27001 Certification Achieved</div><div class="fc-bdiv"></div>
             <p class="fc-story">Built an Information Security Management System from the ground up, implemented 93 ISO 27001 controls, and coordinated with a certification body. Company achieved ISO 27001 certification — required by two major enterprise clients.</p>
-            <div class="fc-meta">
-              <div class="fc-mrow"><span class="fc-mlbl">Engagement</span><span class="fc-mval">9-month Hands-On vCISO</span></div>
-              <div class="fc-mrow"><span class="fc-mlbl">Result</span><span class="fc-mval">ISO 27001 certified, two enterprise contracts secured</span></div>
-            </div>
+            <div class="fc-meta"><div class="fc-mrow"><span class="fc-mlbl">Engagement</span><span class="fc-mval">9-month Hands-On vCISO</span></div><div class="fc-mrow"><span class="fc-mlbl">Result</span><span class="fc-mval">ISO 27001 certified, two enterprise contracts secured</span></div></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Card 5: HITRUST -->
     <div class="fc reveal delay-2" role="button" aria-label="HITRUST case study" tabindex="0">
       <div class="fc-inner">
         <div class="fc-front" style="background:linear-gradient(135deg,#0a1520 0%,#1a0a15 100%);">
-          <div class="fc-pat pat-nodes"></div>
-          <div class="fc-overlay"></div>
-          <div class="fc-corner"></div>
-          <div class="fc-ftxt">
-            <span class="fc-flabel">DIGITAL HEALTH | 55 EMPLOYEES, TX</span>
-            <div class="fc-ftitle">HITRUST R2 Gold Standard Assessment</div>
-          </div>
+          <div class="fc-pat pat-nodes"></div><div class="fc-overlay"></div><div class="fc-corner"></div>
+          <div class="fc-ftxt"><span class="fc-flabel">DIGITAL HEALTH | 55 EMPLOYEES, TX</span><div class="fc-ftitle">HITRUST R2 Gold Standard Assessment</div></div>
         </div>
-        <div class="fc-back">
-          <div class="fc-shimmer"></div>
-          <div class="fc-btxt">
-            <span class="fc-blabel">DIGITAL HEALTH | 55 EMPLOYEES, TX</span>
-            <div class="fc-btitle">HITRUST R2 Gold Standard Assessment</div>
-            <div class="fc-bdiv"></div>
+        <div class="fc-back"><div class="fc-shimmer"></div>
+          <div class="fc-btxt"><span class="fc-blabel">DIGITAL HEALTH | 55 EMPLOYEES, TX</span><div class="fc-btitle">HITRUST R2 Gold Standard Assessment</div><div class="fc-bdiv"></div>
             <p class="fc-story">Led the company through HITRUST R2 Assessment. Built security policies, implemented required controls, and managed the entire assessment process with the HITRUST assessor. Certification required by a major hospital system partner.</p>
-            <div class="fc-meta">
-              <div class="fc-mrow"><span class="fc-mlbl">Engagement</span><span class="fc-mval">9-month Hands-On vCISO</span></div>
-              <div class="fc-mrow"><span class="fc-mlbl">Result</span><span class="fc-mval">HITRUST R2 certified, hospital system partnership secured</span></div>
-            </div>
+            <div class="fc-meta"><div class="fc-mrow"><span class="fc-mlbl">Engagement</span><span class="fc-mval">9-month Hands-On vCISO</span></div><div class="fc-mrow"><span class="fc-mlbl">Result</span><span class="fc-mval">HITRUST R2 certified, hospital system partnership secured</span></div></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Card 6: FinServ SOC 2 -->
     <div class="fc reveal delay-3" role="button" aria-label="FinServ SOC 2 case study" tabindex="0">
       <div class="fc-inner">
         <div class="fc-front" style="background:linear-gradient(135deg,#050a1a 0%,#1a0510 100%);">
-          <div class="fc-pat pat-grid"></div>
-          <div class="fc-overlay"></div>
-          <div class="fc-corner"></div>
-          <div class="fc-ftxt">
-            <span class="fc-flabel">FINSERV | 40 EMPLOYEES, REMOTE</span>
-            <div class="fc-ftitle">SOC 2 Compliance Unblocking Enterprise Deals</div>
-          </div>
+          <div class="fc-pat pat-grid"></div><div class="fc-overlay"></div><div class="fc-corner"></div>
+          <div class="fc-ftxt"><span class="fc-flabel">FINSERV | 40 EMPLOYEES, REMOTE</span><div class="fc-ftitle">SOC 2 Compliance Unblocking Enterprise Deals</div></div>
         </div>
-        <div class="fc-back">
-          <div class="fc-shimmer"></div>
-          <div class="fc-btxt">
-            <span class="fc-blabel">FINSERV | 40 EMPLOYEES, REMOTE</span>
-            <div class="fc-btitle">SOC 2 Compliance Unblocking Enterprise Deals</div>
-            <div class="fc-bdiv"></div>
+        <div class="fc-back"><div class="fc-shimmer"></div>
+          <div class="fc-btxt"><span class="fc-blabel">FINSERV | 40 EMPLOYEES, REMOTE</span><div class="fc-btitle">SOC 2 Compliance Unblocking Enterprise Deals</div><div class="fc-bdiv"></div>
             <p class="fc-story">Delivered end-to-end SOC 2 compliance program for a financial services company. Built all required controls, policies, and evidence collection workflows. Completed in time for a major enterprise contract deadline.</p>
-            <div class="fc-meta">
-              <div class="fc-mrow"><span class="fc-mlbl">Engagement</span><span class="fc-mval">6-month Hands-On vCISO</span></div>
-              <div class="fc-mrow"><span class="fc-mlbl">Result</span><span class="fc-mval">SOC 2 certified, enterprise deals unblocked</span></div>
-            </div>
+            <div class="fc-meta"><div class="fc-mrow"><span class="fc-mlbl">Engagement</span><span class="fc-mval">6-month Hands-On vCISO</span></div><div class="fc-mrow"><span class="fc-mlbl">Result</span><span class="fc-mval">SOC 2 certified, enterprise deals unblocked</span></div></div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 
   <script>
@@ -739,12 +1416,8 @@
       var cards = document.querySelectorAll('.fc');
       var isTouch = window.matchMedia('(hover: none)').matches;
       cards.forEach(function(card){
-        if(isTouch){
-          card.addEventListener('click', function(){ card.classList.toggle('flipped'); });
-        }
-        card.addEventListener('keydown', function(e){
-          if(e.key==='Enter'||e.key===' '){ e.preventDefault(); card.classList.toggle('flipped'); }
-        });
+        if(isTouch){ card.addEventListener('click', function(){ card.classList.toggle('flipped'); }); }
+        card.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); card.classList.toggle('flipped'); } });
         if(!isTouch){ card.addEventListener('mouseenter', function(){ card.classList.remove('flipped'); }); }
       });
     })();
@@ -755,74 +1428,37 @@
      FAQ
      ============================================================ -->
 <section class="section">
-  <div class="container" style="max-width:800px;">
+  <div class="container">
     <div style="text-align:center;margin-bottom:56px;">
       <div class="label reveal">Frequently Asked Questions</div>
       <h2 class="section-title reveal delay-1">Common Questions</h2>
     </div>
 
-    <div class="reveal delay-1">
-
+    <div class="faq-wrap reveal delay-1">
       <div class="faq-item">
-        <div class="faq-question">
-          Do I need a full-time internal security team?
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">No. In the Advisory model, we guide your existing team — whether that's an IT manager, a developer, or an operations lead. In the Hands-On model, we do the work ourselves with your approval at every step. Either way, you don't need to hire anyone.</div>
-        </div>
+        <div class="faq-question">Do I need a full-time internal security team?<span class="faq-icon">+</span></div>
+        <div class="faq-answer"><div class="faq-answer-inner">No. In the Advisory model, we guide your existing team — whether that's an IT manager, a developer, or an operations lead. In the Hands-On model, we do the work ourselves with your approval at every step. Either way, you don't need to hire anyone.</div></div>
       </div>
-
       <div class="faq-item">
-        <div class="faq-question">
-          How long does it take to get SOC 2 certified?
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">SOC 2 Type I typically takes 2–4 months to prepare for and complete. Type II requires a 6–12 month observation period on top of that. We'll give you a realistic timeline based on your current state in the free consultation.</div>
-        </div>
+        <div class="faq-question">How long does it take to get SOC 2 certified?<span class="faq-icon">+</span></div>
+        <div class="faq-answer"><div class="faq-answer-inner">SOC 2 Type I typically takes 2–4 months to prepare for and complete. Type II requires a 6–12 month observation period on top of that. We'll give you a realistic timeline based on your current state in the free consultation.</div></div>
       </div>
-
       <div class="faq-item">
-        <div class="faq-question">
-          Do you work with companies outside California?
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">Yes — we are California-based but serve clients across the United States remotely.</div>
-        </div>
+        <div class="faq-question">Do you work with companies outside California?<span class="faq-icon">+</span></div>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes — we are California-based but serve clients across the United States remotely.</div></div>
       </div>
-
       <div class="faq-item">
-        <div class="faq-question">
-          What happens after the contract ends?
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">You own everything we build — all policies, procedures, controls, and documentation. Many clients renew for ongoing vCISO retainer support, but there is no obligation.</div>
-        </div>
+        <div class="faq-question">What happens after the contract ends?<span class="faq-icon">+</span></div>
+        <div class="faq-answer"><div class="faq-answer-inner">You own everything we build — all policies, procedures, controls, and documentation. Many clients renew for ongoing vCISO retainer support, but there is no obligation.</div></div>
       </div>
-
       <div class="faq-item">
-        <div class="faq-question">
-          Do you attend the audit with us?
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">Yes — and this is one of the biggest differences between us and most vCISO shops. In our Hands-On engagements, we sit with the auditor, walk them through your controls, defend the evidence we've collected, and answer questions in real time. We stay until your certification report is in your hands. In Advisory engagements, you lead the audit and we remain available to support.</div>
-        </div>
+        <div class="faq-question">Do you attend the audit with us?<span class="faq-icon">+</span></div>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes — and this is one of the biggest differences between us and most vCISO shops. In our Hands-On engagements, we sit with the auditor, walk them through your controls, defend the evidence we've collected, and answer questions in real time. We stay until your certification report is in your hands.</div></div>
       </div>
-
       <div class="faq-item">
-        <div class="faq-question">
-          What does pricing look like?
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">Pricing depends on three things: the framework, the engagement length (3, 6, 9, or 12 months), and the model — Hands-On includes full implementation and audit defense; Advisory is lighter-touch coaching. Either way, you're paying a fraction of a full-time CISO's $200K+ salary. In the free consultation, we'll scope your specific situation and give you a fixed-price proposal — no hourly billing, no surprises.</div>
-        </div>
+        <div class="faq-question">What does pricing look like?<span class="faq-icon">+</span></div>
+        <div class="faq-answer"><div class="faq-answer-inner">Pricing depends on three things: the framework, the engagement length (3, 6, 9, or 12 months), and the model. Either way, you're paying a fraction of a full-time CISO's $200K+ salary. In the free consultation, we'll scope your specific situation and give you a fixed-price proposal — no hourly billing, no surprises.</div></div>
       </div>
-
     </div>
   </div>
 </section>
@@ -830,15 +1466,13 @@
 <!-- ============================================================
      FINAL CTA
      ============================================================ -->
-<section class="section bg-elev" style="text-align:center;">
-  <div class="container">
-    <div style="max-width:600px;margin:0 auto;">
-      <div class="reveal" style="font-size:0.8rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;">Ready?</div>
-      <h2 class="section-title reveal delay-1" style="font-size:clamp(2rem,4vw,3rem);">Ready to get audit-passed?</h2>
-      <p class="section-sub reveal delay-2" style="margin:0 auto 36px;text-align:center;">Book a free 30-minute consultation. We'll scope your compliance situation and tell you exactly what you need — no obligation, no sales pitch.</p>
-      <div class="reveal delay-3">
-        <a href="contact.html" class="btn btn-primary" style="font-size:1rem;padding:16px 36px;">Book a Free Consultation →</a>
-      </div>
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="reveal" style="font-size:0.8rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;">Ready?</div>
+    <h2 class="section-title reveal delay-1" style="font-size:clamp(2.2rem,4.5vw,3.5rem);margin-bottom:20px;">Ready to get audit-passed?</h2>
+    <p class="section-sub reveal delay-2" style="margin:0 auto 40px;text-align:center;">Book a free 30-minute consultation. We'll scope your compliance situation and tell you exactly what you need — no obligation, no sales pitch.</p>
+    <div class="reveal delay-3">
+      <a href="contact.html" class="btn-glow">Book a Free Consultation →</a>
     </div>
   </div>
 </section>
@@ -899,7 +1533,7 @@
         </ul>
       </div>
     </div>
-        <div class="footer-bottom">
+    <div class="footer-bottom">
       <p class="footer-copy">© 2025 Nysa Technology. All rights reserved.</p>
       <p class="footer-contact">
         <a href="mailto:info@nysatechnology.com">info@nysatechnology.com</a>
@@ -910,58 +1544,102 @@
   </div>
 </footer>
 
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
 <script src="main.js"></script>
 <script>
-/* ---- PARTICLE CANVAS ---- */
+/* ================================================================
+   PAGE LOADER
+   ================================================================ */
+(function() {
+  const loader = document.getElementById('loader');
+  const bar = document.getElementById('loaderBar');
+  let p = 0;
+  const iv = setInterval(() => {
+    p += Math.random() * 25;
+    if (p > 90) p = 90;
+    bar.style.width = p + '%';
+  }, 120);
+  window.addEventListener('load', () => {
+    clearInterval(iv);
+    bar.style.width = '100%';
+    setTimeout(() => { loader.classList.add('hidden'); }, 400);
+  });
+  // Fallback
+  setTimeout(() => { loader.classList.add('hidden'); }, 3000);
+})();
+
+/* ================================================================
+   CURSOR GLOW
+   ================================================================ */
+(function() {
+  const el = document.getElementById('cursor-glow');
+  if (!el || window.matchMedia('(hover: none)').matches) { el && (el.style.display = 'none'); return; }
+  let mx = -999, my = -999;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  function loop() {
+    el.style.left = mx + 'px';
+    el.style.top  = my + 'px';
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+
+/* ================================================================
+   SCROLL PROGRESS
+   ================================================================ */
+(function() {
+  const bar = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+    bar.style.width = Math.min(pct, 100) + '%';
+  }, { passive: true });
+})();
+
+/* ================================================================
+   PARTICLE CANVAS
+   ================================================================ */
 (function() {
   const canvas = document.getElementById('particleCanvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   let W, H, particles = [];
 
-  function resize() {
-    W = canvas.width = canvas.offsetWidth;
-    H = canvas.height = canvas.offsetHeight;
-  }
+  function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; }
 
   function Particle() {
     this.x = Math.random() * W;
     this.y = Math.random() * H;
-    this.vx = (Math.random() - 0.5) * 0.4;
-    this.vy = (Math.random() - 0.5) * 0.4;
-    this.r = Math.random() * 1.8 + 0.5;
-    this.gold = Math.random() > 0.5;
-    this.alpha = Math.random() * 0.5 + 0.2;
+    this.vx = (Math.random() - 0.5) * 0.35;
+    this.vy = (Math.random() - 0.5) * 0.35;
+    this.r = Math.random() * 1.6 + 0.4;
+    this.gold = Math.random() > 0.45;
+    this.alpha = Math.random() * 0.45 + 0.15;
   }
-
   Particle.prototype.update = function() {
-    this.x += this.vx;
-    this.y += this.vy;
-    if (this.x < 0) this.x = W;
-    if (this.x > W) this.x = 0;
-    if (this.y < 0) this.y = H;
-    if (this.y > H) this.y = 0;
+    this.x += this.vx; this.y += this.vy;
+    if (this.x < 0) this.x = W; if (this.x > W) this.x = 0;
+    if (this.y < 0) this.y = H; if (this.y > H) this.y = 0;
   };
 
   function init() {
     particles = [];
-    const count = Math.floor((W * H) / 12000);
+    const count = Math.floor((W * H) / 11000);
     for (let i = 0; i < count; i++) particles.push(new Particle());
   }
 
   function draw() {
     ctx.clearRect(0, 0, W, H);
-
-    // Connections
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
         const dx = particles[i].x - particles[j].x;
         const dy = particles[i].y - particles[j].y;
         const dist = Math.sqrt(dx*dx + dy*dy);
-        if (dist < 140) {
-          const alpha = (1 - dist / 140) * 0.12;
-          ctx.strokeStyle = `rgba(182,157,106,${alpha})`;
-          ctx.lineWidth = 0.8;
+        if (dist < 130) {
+          const a = (1 - dist / 130) * 0.1;
+          ctx.strokeStyle = `rgba(182,157,106,${a})`;
+          ctx.lineWidth = 0.7;
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
@@ -969,27 +1647,108 @@
         }
       }
     }
-
-    // Dots
     particles.forEach(p => {
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = p.gold
-        ? `rgba(182,157,106,${p.alpha})`
-        : `rgba(34,211,238,${p.alpha * 0.7})`;
+      ctx.fillStyle = p.gold ? `rgba(182,157,106,${p.alpha})` : `rgba(34,211,238,${p.alpha * 0.65})`;
       ctx.fill();
       p.update();
     });
-
     requestAnimationFrame(draw);
   }
 
-  window.addEventListener('resize', () => { resize(); init(); });
-  resize();
-  init();
-  draw();
+  window.addEventListener('resize', () => { resize(); init(); }, { passive: true });
+  resize(); init(); draw();
+})();
+
+/* ================================================================
+   COUNTER ANIMATION
+   ================================================================ */
+(function() {
+  const counters = document.querySelectorAll('.stat-number[data-count]');
+  if (!counters.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1800;
+      const startTime = performance.now();
+
+      function update(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+        const value = Math.round(ease * target);
+        el.textContent = value + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+      observer.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(el => observer.observe(el));
+})();
+
+/* ================================================================
+   3D TILT EFFECT (hero right card)
+   ================================================================ */
+(function() {
+  const el = document.getElementById('heroTilt');
+  if (!el || window.matchMedia('(hover: none)').matches) return;
+
+  el.addEventListener('mousemove', e => {
+    const rect = el.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const rx = ((e.clientY - cy) / (rect.height / 2)) * -8;
+    const ry = ((e.clientX - cx) / (rect.width / 2)) * 8;
+    el.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.02)`;
+  });
+  el.addEventListener('mouseleave', () => {
+    el.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)';
+    el.style.transition = 'transform 0.5s cubic-bezier(0.16,1,0.3,1)';
+  });
+  el.addEventListener('mouseenter', () => { el.style.transition = 'none'; });
+})();
+
+/* ================================================================
+   CARD TILT (generic .tilt-card elements)
+   ================================================================ */
+(function() {
+  if (window.matchMedia('(hover: none)').matches) return;
+  document.querySelectorAll('.fw-card, .pillar-card, .industry-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `translateY(-6px) perspective(600px) rotateX(${-y * 6}deg) rotateY(${x * 6}deg)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      card.style.transition = 'transform 0.4s cubic-bezier(0.16,1,0.3,1), border-color 0.3s, box-shadow 0.3s';
+    });
+    card.addEventListener('mouseenter', () => { card.style.transition = 'none'; });
+  });
+})();
+
+/* ================================================================
+   TIMELINE LINE ANIMATION (re-trigger on scroll)
+   ================================================================ */
+(function() {
+  const wrap = document.querySelector('.timeline-wrap');
+  if (!wrap) return;
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      wrap.style.setProperty('--line-ready', '1');
+      observer.disconnect();
+    }
+  }, { threshold: 0.3 });
+  observer.observe(wrap);
 })();
 </script>
-<script src="main.js"></script>
 </body>
 </html>
