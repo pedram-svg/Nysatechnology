@@ -163,9 +163,14 @@
     if (e.origin !== 'https://calendly.com') return;
     if (e.data && e.data.event === 'calendly.event_scheduled') {
       if (typeof gtag === 'function') {
+        // GA4 event (existing)
         gtag('event', 'calendly_booking_completed', {
           event_category: 'engagement',
           event_label: 'Calendly booking confirmed'
+        });
+        // Google Ads conversion — Nysa Technology, "Calendly Booking Completed" (Book appointment)
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18292139088/tRU-CNzqt8wcENDIr5JE'
         });
       }
     }
