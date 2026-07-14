@@ -6,28 +6,38 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://nysatechnology.com/services.html</loc>
+    <loc>https://nysatechnology.com/services</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://nysatechnology.com/compliance.html</loc>
+    <loc>https://nysatechnology.com/compliance</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://nysatechnology.com/about.html</loc>
+    <loc>https://nysatechnology.com/partners</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nysatechnology.com/contact.html</loc>
+    <loc>https://nysatechnology.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nysatechnology.com/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nysatechnology.com/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://nysatechnology.com/careers</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 </urlset>
